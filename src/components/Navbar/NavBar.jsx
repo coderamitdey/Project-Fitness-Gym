@@ -37,7 +37,7 @@ const NavBar = () => {
     const links = navigationData.map(route => <Link key={route.id} route={route}></Link>)
 
     return (
-        <nav className='flex justify-between mx-10 mt-5'>
+        <nav className='flex justify-between mx-10 mt-2'>
 
             <div className='flex gap-2' onClick={() => setOpen(!open)}>
                 {
@@ -46,13 +46,13 @@ const NavBar = () => {
                 <Menu className='md:hidden'></Menu>
                 }
 
-                <ul className='md:hidden'>
+                <ul className={`md:hidden absolute duration-1000 ${open ? 'top-8' : '-top-50'}`}>
                     {
                         links
                     }
                 </ul>
             
-            <h3>My NavBar</h3>
+            <h3 className='font bold text-4xl text-orange-400'>Fitness Gym</h3>
             </div>
 
             <ul className='md:flex hidden'>
@@ -74,7 +74,11 @@ const NavBar = () => {
                 <li><a href="/blog">Blog</a></li>
             </ul> */}
 
+            <div className='flex gap-2'>
+                <button className='btn btn-accent'>Log in</button>
+
             <button className='btn btn-primary'>Sign in</button>
+            </div>
         </nav>
     );
 };
